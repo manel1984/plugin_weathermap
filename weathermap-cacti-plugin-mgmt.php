@@ -1717,7 +1717,7 @@ function perms_get_records(&$total_rows, $rows = 30, $apply_limits = true) {
 				$join JOIN (SELECT * FROM weathermap_auth WHERE mapid = ?) AS wa
 				ON ua.id = wa.userid
 				AND ua.enabled = 'on'
-				WHERE (wa.mapid = ? OR (wa.mapid IS NULL AND ua.enabled = 'on'))
+				WHERE (wa.mapid = ? OR (ua.enabled = 'on'))
 				$sql_where1
 				UNION ALL
 				SELECT id, name, description, 'group' AS type, wa.mapid AS allowed, 'N/A' AS realm
@@ -1738,7 +1738,7 @@ function perms_get_records(&$total_rows, $rows = 30, $apply_limits = true) {
 				$join JOIN (SELECT * FROM weathermap_auth WHERE mapid = ?) AS wa
 				ON ua.id = wa.userid
 				AND ua.enabled = 'on'
-				WHERE (wa.mapid = ? OR (wa.mapid IS NULL AND ua.enabled = 'on'))
+				WHERE (wa.mapid = ? OR (ua.enabled = 'on'))
 				$sql_where1
 				UNION ALL
 				SELECT COUNT(*) AS `rows`
@@ -1760,7 +1760,7 @@ function perms_get_records(&$total_rows, $rows = 30, $apply_limits = true) {
 				$join JOIN (SELECT * FROM weathermap_auth WHERE mapid = ?) AS wa
 				ON ua.id = wa.userid
 				AND ua.enabled = 'on'
-				WHERE (wa.mapid = ? OR (wa.mapid IS NULL AND ua.enabled = 'on'))
+				WHERE (wa.mapid = ? OR (ua.enabled = 'on'))
 				$sql_where1
 			) AS rs
 			$sql_limit",
@@ -1771,7 +1771,7 @@ function perms_get_records(&$total_rows, $rows = 30, $apply_limits = true) {
 			$join JOIN (SELECT * FROM weathermap_auth WHERE mapid = ?) AS wa
 			ON ua.id = wa.userid
 			AND ua.enabled = 'on'
-			WHERE (wa.mapid = ? OR (wa.mapid IS NULL AND ua.enabled = 'on'))
+			WHERE (wa.mapid = ? OR (AND ua.enabled = 'on'))
 			$sql_where1",
 			$sql_params);
 	} else {
